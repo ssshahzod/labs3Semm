@@ -3,28 +3,28 @@
 
 namespace Lemniscatus{
     BoothLemniscate::BoothLemniscate(double m, double c) :center(0,0){
-        if (m < 0)
+        if (m <= 0)
             throw std::logic_error("Incorrect M parameter!");
         M = m;
         C = c;
     }
 
     BoothLemniscate::BoothLemniscate(const Point &p0, double m, double c) : center(p0){
-        if (m < 0)
+        if (m <= 0)
             throw std::logic_error("Incorrect M parameter!");
         M = m;
         C = c;
     }
 
     BoothLemniscate::BoothLemniscate(double x0, double y0, double m, double c) :center(x0, y0){
-        if (m < 0)
+        if (m <= 0)
             throw std::logic_error("Incorrect M parameter!");
         M = m;
         C = c;
     }
 
     BoothLemniscate &BoothLemniscate::setM(double m){
-        if(m < 0)
+        if(m <= 0)
             throw std::logic_error("Incorrect value!");
         M = m;
         return *this;
@@ -35,19 +35,21 @@ namespace Lemniscatus{
         return *this;
     }
 
-    std::string BoothLemniscate::curveType() const{
-        std::string ellip = "Elliptical type.",
-        hyper = "Hyperbolic type.",
-        specc = "Special case (c = 2m^2): 2 circles.",
-        spec = "Special case (c = 0): lemniscate of Bernoulli.";
+    int BoothLemniscate::curveType() const{
+        /*
+        0 -> "Elliptical type."
+        1 -> "Special case (c = 0): lemniscate of Bernoulli."
+        2 -> "Hyperbolic type."
+        3 -> "Special case (c = 2m^2): 2 circles."
+         */
         if (C > 2*M*M)
-            return ellip;
+            return 0;
         else if(C == 0)
-            return spec;
+            return 1;
         else if(C < 2*M*M)
-            return hyper;
+            return 2;
         else
-            return specc;
+            return 3;
     }
 
     double BoothLemniscate::area(){
@@ -95,7 +97,7 @@ namespace Lemniscatus{
 
     double BoothLemniscate::centerDistance(double angle) {
         double par = 2*M*M;
-        double a = par + C, b = 0;
+        double a = par + C, b;
         if(C > par){
             b = C - par;
             return (sqrt(a*pow(cos(angle), 2) + b*pow(sin(angle),2)));
@@ -118,7 +120,7 @@ namespace Lemniscatus{
         double a = 0, b = 0;
         size_t size = 20;
         bool sign = false;
-        a = 2*M*M;
+        a = 2*M*M + C;
         b = C - 2*M*M;
         if(b < 0){
             sign = true;

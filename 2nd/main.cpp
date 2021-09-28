@@ -7,6 +7,8 @@
 int main(){
     Lemniscatus::BoothLemniscate a(4, 5, 6, 10);
     Lemniscatus::Point tmp;
+    std::string types[] = {"Elliptical type.", "Special case (c = 0): lemniscate of Bernoulli.",
+                           "Hyperbolic type.", "Special case (c = 2m^2): 2 circles."};
     char* str;
     double ang, m, c;
     int fl = 1;
@@ -16,7 +18,7 @@ int main(){
         std::cout << str;
         delete [] str;
         std::cout << "Area: " << a.area() << std::endl;
-        std::cout << "Type of the curve: " << a.curveType() << std::endl;
+        std::cout << "Type of the curve: " << types[a.curveType()] << std::endl;
         std::cout << "Coefficients: " << "A: " << a.coef().cordX
                                         << " B: " << a.coef().cordY << std::endl;
         int exval = 1;

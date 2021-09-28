@@ -18,7 +18,7 @@ namespace Lemniscatus{
             //constructors
             BoothLemniscate(double M = 1, double C = 1);
             BoothLemniscate(const Point &p0, double M = 1, double C = 1);
-            BoothLemniscate(double x0, double y0, double M = 1, double C = 1);
+            BoothLemniscate(double x0, double y0, double M, double C);
 
             //setters
             BoothLemniscate &setP(const Point &p0){ center = p0; return *this;}
@@ -31,7 +31,7 @@ namespace Lemniscatus{
             double getC() const { return C;};
             
             //other methods
-            std::string curveType() const;
+            int curveType() const;
             double area();
             Point coef(); //Point type is used to return both coefficients at once
             double centerDistance(double angle);
