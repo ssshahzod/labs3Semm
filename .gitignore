@@ -1,5 +1,8 @@
+main
+main.exe
+cmake-build-debug
 .idea
 .vscode
-cmake-build-debug
-lib
-
+lab2sem
+lab1sem
+cmake-cache
