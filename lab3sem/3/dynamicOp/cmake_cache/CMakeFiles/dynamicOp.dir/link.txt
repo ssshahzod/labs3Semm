@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/dynamicOp.dir/definitions.cpp.o CMakeFiles/dynamicOp.dir/Tests/Tests.cpp.o -o dynamicOp  lib/libgtest.a lib/libgtest_main.a lib/libgtest.a -lpthread 

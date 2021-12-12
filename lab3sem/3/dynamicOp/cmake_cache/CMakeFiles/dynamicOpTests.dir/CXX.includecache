@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/cronion/Documents/labs/lab3sem/3rd/dynamicOp/definitions.cpp
+definitions.hpp
+/home/cronion/Documents/labs/lab3sem/3rd/dynamicOp/definitions.hpp
+iostream
+-
+
+/home/cronion/Documents/labs/lab3sem/3rd/dynamicOp/definitions.hpp
+iostream
+-
+limits
+-
+cstring
+-
+
+/home/cronion/Documents/labs/lab3sem/3rd/dynamicOp/main.cpp
+iostream
+-
+definitions.hpp
+/home/cronion/Documents/labs/lab3sem/3rd/dynamicOp/definitions.hpp
+
